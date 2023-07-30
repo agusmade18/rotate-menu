@@ -1,23 +1,45 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import {
+  BsFillPlusCircleFill,
+  BsFillPeopleFill,
+  BsFillPersonBadgeFill,
+  BsFillSendPlusFill,
+  BsFillPuzzleFill,
+  BsFillRCircleFill,
+  BsFillTelephoneXFill,
+  BsAirplaneEnginesFill,
+  BsFillDropletFill,
+} from "react-icons/bs";
+import "./App.css";
+import { useState } from "react";
 
 function App() {
+  const menus = [
+    <BsFillPeopleFill />,
+    <BsFillPersonBadgeFill />,
+    <BsFillSendPlusFill />,
+    <BsFillPuzzleFill />,
+    <BsFillRCircleFill />,
+    <BsFillTelephoneXFill />,
+    <BsAirplaneEnginesFill />,
+    <BsFillDropletFill />,
+  ];
+  const [active, setActive] = useState(false);
+  const onClick = () => {
+    setActive(!active);
+  };
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+    <div className="w-full flex h-screen justify-center items-center bg-gradient-to-tr from-purple-600 to-pink-500">
+      <div className={`menu ${active ? "active" : ""}`}>
+        <div className={`toggle`} onClick={onClick}>
+          <BsFillPlusCircleFill />
+        </div>
+        {menus.map((menu, i) => (
+          <li style={{ "--i": i }} key={i}>
+            <a href="#">{menu}</a>
+          </li>
+        ))}
+      </div>
     </div>
   );
 }
