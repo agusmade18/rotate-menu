@@ -1,4 +1,3 @@
-import "./App.css";
 import {
   BsFillPlusCircleFill,
   BsFillPeopleFill,
@@ -10,7 +9,6 @@ import {
   BsAirplaneEnginesFill,
   BsFillDropletFill,
 } from "react-icons/bs";
-import "./App.css";
 import { useState } from "react";
 
 function App() {
